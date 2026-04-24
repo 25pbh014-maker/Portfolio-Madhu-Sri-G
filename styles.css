@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00e5ff;
+}
+
+/* SECTIONS */
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+/* HOME BACKGROUND */
+.home {
+  position: relative;
+  background: url('assets/images/bg.jpeg') no-repeat center/cover;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;   /* fixes overlap */
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* OTHER SECTIONS */
+.about { background: #f5f5f5; }
+.resume { background: #e0e0e0; }
+.contact { background: #d0d0d0; }
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00e5ff;
+  color: black;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00e5ff;
+  color: black;
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 260px }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  nav { display: none; }
+  .profile-img { width: 120px; height: 120px; }
+  .typing { width: 150px; }
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* dark overlay */
+  z-index: 0;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+.about {
+  background: url('assets/images/About bg.jpeg') no-repeat center/cover;
+  color: white;
+  position: relative;
+}
+
+.resume {
+  background: url('assets/images/res bg.jpeg') no-repeat center/cover;
+  color: white;
+  position: relative;
+}
+
+.contact {
+  background: url('assets/images/contact bg.jpeg') no-repeat center/cover;
+  color: white;
+  position: relative;
+}
